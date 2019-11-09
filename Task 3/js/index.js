@@ -11,7 +11,6 @@ function isPrime(num) {
     return false;
   }
 }
-
 // factorial - Returns a number that is the factorial of the given number.
 function myFactorial(num) {
   let factorialNumber = 1;
@@ -45,8 +44,16 @@ function myReverse(str) {
   }
   return newString;
 }
-
 // indexOf - Implement the indexOf function for arrays.
+function myIndexOf(arr, num) {
+  let indexOfNumber = -1;
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] === num) {
+      indexOfNumber = i;
+    }
+  }
+  return indexOfNumber;
+}
 // isPalindrome - Return true or false indicating whether the given string is a plaindrone (case and space insensitive).
 // missing - Takes an unsorted array of unique numbers (ie. no repeats) from 1 through some number n, and returns the missing number in the sequence (there are either no missing numbers, or exactly one missing number). Can you do it in O(N) time? Hint: There’s a clever formula you can use.
 
@@ -55,6 +62,6 @@ console.log('myFactorial(number) - return factorial of a number');
 console.log('fib(number) - return fibonacci number');
 console.log('isSorted(array) - check array is sorted or not');
 console.log('myReverse(string) - reverse method');
-//console.log() indexOf
+console.log('myIndexOf(array, number) - find number in array and return index');
 //console.log() isPalindrome
 //console.log() missing
