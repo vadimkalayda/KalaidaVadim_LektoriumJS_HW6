@@ -65,7 +65,15 @@ function isPalindrome(string) {
   return true;
 }
 // missing - Takes an unsorted array of unique numbers (ie. no repeats) from 1 through some number n, and returns the missing number in the sequence (there are either no missing numbers, or exactly one missing number). Can you do it in O(N) time? Hint: There’s a clever formula you can use.
-
+function missingFunc(arr) {
+  let missingNum;
+  for(let i = 1; i <= arr.length; i++) {
+    if(myIndexOf(arr, i) === -1) {
+      missingNum = i;
+    }
+  }
+  return missingNum;
+}
 // isBalanced - Takes a string and returns true or false indicating whether its curly braces are balanced.
 
 console.log('isPrime(number) - check a number is prime or not');
@@ -74,6 +82,6 @@ console.log('fib(number) - return fibonacci number');
 console.log('isSorted(array) - check array is sorted or not');
 console.log('myReverse(string) - reverse method');
 console.log('myIndexOf(array, number) - find number in array and return index');
-console.log('isPalindrome(string) - check string is palindrome or not')
-//console.log() missing
+console.log('isPalindrome(string) - check string is palindrome or not');
+console.log('missingFunc(array) - find missing number in array');
 //console.log() isBalanced
