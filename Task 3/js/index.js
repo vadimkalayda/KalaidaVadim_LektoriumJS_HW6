@@ -55,7 +55,25 @@ function myIndexOf(arr, num) {
   return indexOfNumber;
 }
 // isPalindrome - Return true or false indicating whether the given string is a plaindrone (case and space insensitive).
+function isPalindrome(string) {
+  let len = Math.floor(string.length / 2);
+  for(let i = 0; i < len; i++) {
+    if(string[i] !== string[string.length - i - 1]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function fastestIsPalindrome(str) {
+  var len = Math.floor(str.length / 2);
+  for (var i = 0; i < len; i++)
+    if (str[i] !== str[str.length - i - 1])
+      return false;
+  return true;
+}
 // missing - Takes an unsorted array of unique numbers (ie. no repeats) from 1 through some number n, and returns the missing number in the sequence (there are either no missing numbers, or exactly one missing number). Can you do it in O(N) time? Hint: There’s a clever formula you can use.
+// isBalanced - Takes a string and returns true or false indicating whether its curly braces are balanced.
 
 console.log('isPrime(number) - check a number is prime or not');
 console.log('myFactorial(number) - return factorial of a number');
@@ -63,5 +81,6 @@ console.log('fib(number) - return fibonacci number');
 console.log('isSorted(array) - check array is sorted or not');
 console.log('myReverse(string) - reverse method');
 console.log('myIndexOf(array, number) - find number in array and return index');
-//console.log() isPalindrome
+console.log('isPalindrome(string) - check string is palindrome or not')
 //console.log() missing
+//console.log() isBalanced
