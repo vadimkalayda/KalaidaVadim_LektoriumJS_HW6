@@ -28,7 +28,15 @@ function fib(num) {
   return fib(num - 1) + fib(num - 2);
 }
 // isSorted - Returns true or false, indicating whether the given array of numbers is sorted.
-
+function isSorted(arr) {
+  let isSortedVariable = true;
+  for(let i = 0; i < arr.length; i++) {
+    if(arr[i] > arr[i + 1]) {
+      isSortedVariable = false;
+    }
+  }
+  return isSortedVariable;
+}
 // reverse - Reverses the given string (yes, using the built in reverse function is cheating).
 function myReverse(str) {
   let newString = '';
@@ -44,8 +52,8 @@ function myReverse(str) {
 
 console.log('isPrime(number) - check a number is prime or not');
 console.log('myFactorial(number) - return factorial of a number');
-console.log('fib(number) - return fibonacci number')
-//console.log() isSorted
+console.log('fib(number) - return fibonacci number');
+console.log('isSorted(array) - check array is sorted or not');
 console.log('myReverse(string) - reverse method');
 //console.log() indexOf
 //console.log() isPalindrome
