@@ -17,38 +17,33 @@ addTaggingElementFunc('beforeend', taggingBlock, 'Lorem ipsum dolor...', 100, 10
 let dragItem = document.querySelectorAll('.tagging-element'),
   itemDelete = document.querySelectorAll('.tagging-delete'),
   itemText = document.querySelectorAll('.tagging-title');
+let initX, initY, mousePressX, mousePressY;
 
 function addEventFunc() {
 
   for(let i = 0; i < dragItem.length; i++) {
-    dragItem[i].onmousedown = function(event) {
 
-      let shiftX = event.clientX - dragItem[i].getBoundingClientRect().left;
-      let shiftY = event.clientY - dragItem[i].getBoundingClientRect().top;
+    dragItem[i].addEventListener('mousedown', function(event) {
+      initX = this.offsetLeft;
+      initY = this.offsetTop;
+      mousePressX = event.clientX;
+      mousePressY = event.clientY;
 
-      document.body.append(dragItem[i]);
+      this.addEventListener('mousemove', repositionElement, false);
 
-      moveAt(event.pageX, event.pageY);
+      window.addEventListener('mouseup', function() {
+        dragItem[i].removeEventListener('mousemove', repositionElement, false);
+      }, false);
 
-      function moveAt(pageX, pageY) {
-        dragItem[i].style.left = pageX - shiftX + 'px';
-        dragItem[i].style.top = pageY - shiftY + 'px';
-      }
+    }, false);
 
-      function onMouseMove(event) {
-        moveAt(event.pageX, event.pageY);
-      }
+    function repositionElement(event) {
+      this.style.left = initX + event.clientX - mousePressX + 'px';
+      this.style.top = initY + event.clientY - mousePressY + 'px';
+    }
 
-      document.addEventListener('mousemove', onMouseMove);
-
-      dragItem[i].onmouseup = function() {
-        document.removeEventListener('mousemove', onMouseMove);
-        dragItem[i].onmouseup = null;
-      };
-
-      dragItem[i].ondragstart = function() {
-        return false;
-      };
+    dragItem[i].ondragstart = function() {
+      return false;
     };
     
     itemText[i].addEventListener('mousedown', function () {
