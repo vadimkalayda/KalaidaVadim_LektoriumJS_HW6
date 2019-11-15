@@ -1,0 +1,62 @@
+.block {
+  width: 500px;
+  height: 300px;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  &:hover {
+    cursor: grab;
+  }
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.carousel {
+  margin-left: $marginRightLeft;
+  margin-right: $marginRightLeft;
+  max-width: 500px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  &.active {
+    max-width: 800px;
+    height: 600px;
+  }
+  &_slide {
+    width: 1402px;
+    height: 300px;
+    background-image: url('../img/tlou-collage2.png');
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate3d(0, 0, 0);
+    animation: moveSlideshow 12s linear infinite;
+    &.active {
+      width: 2600px;
+      height: 600px;
+      background-image: url('../img/tlou-collage.png');
+    }
+  }
+  &-hover {
+    width: $fullWidth;
+    height: $fullHeight;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: rgba(0, 0, 0, .3);
+    transition: .2s;
+    opacity: 0;
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+@keyframes moveSlideshow {
+  100% {
+    transform: translateX(-66.6666%);
+  }
+}
